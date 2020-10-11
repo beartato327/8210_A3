@@ -15,14 +15,21 @@ class Pet(models.Model):
     pet_name = models.CharField(max_length=200, blank=False)
     pet_age = models.IntegerField(null=False)
     pet_breed = models.CharField(max_length=200)
+    pet_active = models.BooleanField(blank=False)
 
     def __str__(self):
         return self.pet_name
 
 class Report(models.Model):
+    REPORT_TYPE = (
+        ('VACCINES', 'Vaccines'),
+        ('SURGERY', 'Surgery'),
+        ('GENERAL', 'General')
+    )
+
     pet = models.ForeignKey(Pet, on_delete=models.CASCADE, related_name='pets')
     reportName = models.CharField(max_length=200)
-    reportType = models.CharField(max_length=100)
+    reportType = models.CharField(choices=REPORT_TYPE, max_length=100, verbose_name='type of report', null=False)
     reportDetails = models.CharField(max_length=500)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
