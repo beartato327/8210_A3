@@ -13,7 +13,7 @@ class Pet(models.Model):
     owner = models.ForeignKey(CustomUser, on_delete=models.CASCADE )
     pet_type = models.CharField(choices=PET_TYPE, max_length=3,verbose_name='type of pet',null=False)
     pet_name = models.CharField(max_length=200, blank=False)
-    pet_age = models.IntegerField(null=False)
+    pet_age = models.DateField()
     pet_breed = models.CharField(max_length=200)
     pet_active = models.BooleanField(blank=False)
 
