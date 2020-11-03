@@ -1,4 +1,4 @@
-from pets.models import Pet
+from .models import Pet
 from rest_framework import serializers
 
 
