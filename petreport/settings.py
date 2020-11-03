@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'users',
     'pets',
+    'frontend',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -127,7 +129,7 @@ USE_TZ = True
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL ='/media/'
+MEDIA_URL = '/media/'
 
 
 AUTH_USER_MODEL = 'users.CustomUser'
