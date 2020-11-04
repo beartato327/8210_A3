@@ -40,6 +40,7 @@ class Pets extends Component {
                             <th>Age</th>
                             <th>Type</th>
                             <th>Breed</th>
+                            <th />
                         </tr>
                     </thead>
                     <tbody>
