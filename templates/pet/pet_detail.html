@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<p>
+    <a style="margin-left: 30px;" href="{% url 'pet_list' %}">
+        <i class="material-icons">keyboard_backspace</i>
+        BACK
+    </a>
+</p>
+<div class="container">
+  <h2>{{ object.pet_name }}'s Reports</h2>
+    
+</div>
+{% endblock content %}

@@ -1,5 +1,7 @@
 from django.db import models
 from users.models import CustomUser
+from django.urls import reverse
+from django.conf import settings
 import uuid
 
 # Create your models here.
@@ -15,10 +17,13 @@ class Pet(models.Model):
     pet_name = models.CharField(max_length=200, blank=False)
     pet_age = models.DateField()
     pet_breed = models.CharField(max_length=200)
-    pet_active = models.BooleanField(blank=False)
+    pet_active = models.BooleanField(blank=False) 
 
     def __str__(self):
         return self.pet_name
+
+    def get_absolute_url(self):
+        return reverse('pet_detail', args=[str(self.id)])
 
 class Report(models.Model):
     REPORT_TYPE = (
