@@ -2,15 +2,15 @@
 
 {% block title %} Pet List {% endblock %}
 {% block content %}
+{% if user.is_authenticated %}
 <div class="container">
     <h2>Welcome {{user.first_name}}</h2>
-    <div style="float: right;"><a class="btn-floating btn-large waves-effect waves-light red" href="{% url 'pet_new' %}"><i class="material-icons">add</i></a></div>
+    <div style="float: right;"><a class="btn-floating btn-large waves-effect waves-light green accent-3" href="{% url 'pet_new' %}"><i class="material-icons">add</i></a></div>
     <table class="striped">
         <thead>
             <th>Name</th>
             <th>Breed</th>
-            <th>Date of Birth</th>
-            <th></th>
+            <th>Age</th>
             <th></th>
         </thead>
         <tbody>
@@ -19,12 +19,17 @@
                 <td>{{pet.pet_name}}</td>
                 <td>{{pet.pet_breed}}</td>
                 <td>{{pet.pet_age}}</td>
-                <td><a class="btn green" href="{% url 'pet_edit' pet.pk %}">Edit Pet</a></td>
-                <td><a class="btn green" href="{% url 'pet_detail' pet.pk %}">View Reports</a></td>
+                <td><a class="btn green" href="{% url 'pet_edit' pet.pk %}">Edit Pet</a> | <a class="btn green" href="{% url 'pet_detail' pet.pk %}">View Reports</a></td>  
             </tr>
             {% endfor %}
         </tbody>
-    </table>    
+    </table>
+{% else %}
+<div class="container-fluid green accent-1 " style="text-align: center; padding: 100px;">
+    <h1>Welcome to Pet Report!</h1>
+    <h5>To get started please login or signup</h5>
+</div>   
+{% endif %}    
 </div>
 {% endblock  %}
 

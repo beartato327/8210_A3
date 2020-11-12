@@ -13,7 +13,7 @@
     <div>
         <nav class="green">
             <div class="nav-wrapper container">
-            <a href="{% url 'home' %}" class="brand-logo">Pet Report</a>
+            <a href="{% url 'pet_list' %}" class="brand-logo">Pet Report</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
             {% if user.is_authenticated %}
                 <li><a href="{% url 'logout' %}">Logout</a></li>
@@ -32,7 +32,7 @@
     {% block content %}
     {% endblock content %}
     <!-- Compiled and minified JavaScript -->
-    <script src="{% static 'index.js' %}"></script>
+    <!-- <script src="{% static 'petreport/index.js' %}"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   </body>

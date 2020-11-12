@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'users',
     'pets',
     'crispy_forms',
+    'crispy_forms_materialize',
 ]
 
 MIDDLEWARE = [
@@ -121,6 +122,8 @@ USE_L10N = True
 
 USE_TZ = True
 
+# Default layout to use with "crispy_forms"
+CRISPY_TEMPLATE_PACK = 'materialize_css_forms'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
@@ -130,8 +133,8 @@ STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL ='/media/'
 
-LOGIN_REDIRECT_URL = 'home'
-LOGOUT_REDIRECT_URL = 'home'
+LOGIN_REDIRECT_URL = 'pet_list'
+LOGOUT_REDIRECT_URL = 'pet_list'
 
 AUTH_USER_MODEL = 'users.CustomUser'
 
