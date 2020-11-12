@@ -5,13 +5,7 @@
 <div class="container">
     <h1>{{object.pet_name}}'s Update</h1>
     <form action="" method="post">{% csrf_token %}
-      {{ form.as_p }}
-      <p>
-          <!-- <input type="text" class="datepicker" /> -->
-         <!--  {{ form.pet_age|as_crispy_field }} -->
-        
-      </p>
-      
+      {{ form|crispy }}      
     <button class="btn" type="submit">Update</button>
     <a class="btn red" href="{% url 'pet_list' %}">Cancel</a>
     </form>
