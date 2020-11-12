@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block title %} Report List {% endblock %}
+{% block content %}
+<div class="container">
+    <h2> {{ object.pet_name }} Reports</h2>
+    <div style="float: right;"><a class="btn-floating btn-large waves-effect waves-light green accent-3" href="{% url 'report_new'  %}"><i class="material-icons">add</i></a></div>
+           <h5>{{report.reportName}}</h5>
+</div>
+{% endblock  %}
+

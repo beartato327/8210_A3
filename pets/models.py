@@ -29,4 +29,7 @@ class Report(models.Model):
 
     def __str__(self):
         return self.reportType
+
+    """ def get_absolute_url(self):
+        return reverse('report_detail', args=[str(self.pet)]) """
     

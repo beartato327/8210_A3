@@ -4,8 +4,8 @@ from .models import Pet, Report
 
 @admin.register(Pet)
 class PetAdmin(admin.ModelAdmin):
-    list_display = ('pet_name', 'owner','pet_breed')
+    list_display = ('pet_name', 'owner','pet_breed','id')
 
 @admin.register(Report)
 class ReportAdmin(admin.ModelAdmin):
-    list_display = ('pet', 'reportName', 'reportType')
+    list_display = ('pet', 'reportName', 'reportType','id')

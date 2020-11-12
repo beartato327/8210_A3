@@ -9,6 +9,11 @@
 </p>
 <div class="container">
   <h2>{{ object.pet_name }}'s Reports</h2>
+  {% for report in object_list %}
+    <div>
+      <span>{{ report.reportName }}</span>
+    </div>
+  {% endfor %}
     
 </div>
 {% endblock content %}
