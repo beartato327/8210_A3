@@ -2,7 +2,7 @@
 
 {% block title %} Pet List {% endblock %}
 {% block content %}
-{% if user.is_authenticated %}
+{% if user.is_authenticated  %}
 <div class="container">
     <h2>Welcome {{user.first_name}}</h2>
     <div style="float: right;"><a class="btn-floating btn-large waves-effect waves-light green accent-3" href="{% url 'pet_new' %}"><i class="material-icons">add</i></a></div>
@@ -19,7 +19,7 @@
                         <td>{{pet.pet_name}}</td>
                         <td>{{pet.pet_breed}}</td>
                         <td>{{pet.pet_age}}</td>
-                        <td><a class="btn green" href="{% url 'pet_edit' pet.pk %}">Edit Pet</a> | <a class="btn green" href="{% url 'report_list' pet.pk %}">View Reports</a></td>  
+                        <td><a class="btn green" href="{% url 'pet_edit' pet.pk %}">Edit Pet</a> | <a class="btn green" href="{% url 'pet_detail' pet.pk %}">View Reports</a></td>  
                     </tr>
                     {% endfor %}
                 </tbody>

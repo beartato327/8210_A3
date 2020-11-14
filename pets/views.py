@@ -8,10 +8,19 @@ class PetListView(LoginRequiredMixin, ListView):
     model = Pet
     template_name = 'pet/pet_list.html'
 
+    def get_queryset(self):
+        return self.model.objects.filter(owner=self.request.user)
+
 class PetDetailView(LoginRequiredMixin,DetailView):
     model = Pet
     template_name = 'pet/pet_detail.html'
     login_url='login'
+    queryset = Pet.objects.all()
+
+    def get_context_data(self, **kwargs):
+        context = super(PetDetailView, self).get_context_data(**kwargs)
+        context['reports'] = Report.objects.all()
+        return context
 
 class PetUpdateView(LoginRequiredMixin,UpdateView):
     model = Pet
@@ -32,6 +41,7 @@ class ReportListView( ListView):
     model = Report
     template_name = 'pet/report_list.html'
 
+
 class ReportCreateView(CreateView):
     model = Report
     template_name = 'pet/report_new.html'
@@ -39,5 +49,10 @@ class ReportCreateView(CreateView):
     login_url = 'login'
 
     def form_valid(self, form):
-        form.instance.pet = self.request.pet
-        return super().form_valid(form)
+        form.instance.pet_id = self.kwargs.get('pk')
+        return super(ReportCreateView, self).form_valid(form)
+
+class ReportDetailView(LoginRequiredMixin,DetailView):
+    model = Report
+    template_name = 'pet/report_detail.html'
+    login_url='login'

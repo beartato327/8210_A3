@@ -9,11 +9,25 @@
 </p>
 <div class="container">
   <h2>{{ object.pet_name }}'s Reports</h2>
-  {% for report in object_list %}
-    <div>
-      <span>{{ report.reportName }}</span>
-    </div>
-  {% endfor %}
+  <div style="float: right;"><a class="btn-floating btn-large waves-effect waves-light green accent-3" href="{% url 'report_new' object.id %}"><i class="material-icons">add</i></a></div>
+  <table class="striped" style=" margin-left: auto; margin-right: auto;">
+    <thead>
+        <th>Report Name</th>
+        <th>Report Type</th>
+        <th>Report Details</th>
+    </thead>
+    <tbody>
+      {% for report in reports %}
+      {% if report.pet.id == object.id %}
+        <tr>
+            <td>{{report.reportName}}</td>
+            <td>{{report.reportType}}</td>
+            <td>{{report.reportDetails}}</td> 
+        </tr>
+        {% endif %}
+    {% endfor %}
+    </tbody>
+  </table>
     
 </div>
 {% endblock content %}
