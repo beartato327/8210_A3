@@ -8,6 +8,7 @@ from .views import(
     ReportListView,
     ReportCreateView,
     ReportDetailView,
+    ReportUpdateView
 )
 #app_name = 'pet'
 urlpatterns = [
@@ -17,5 +18,6 @@ urlpatterns = [
     path('<uuid:pk>/report_list', ReportListView.as_view(), name='report_list'),
     path('<uuid:pk>/add_report/', ReportCreateView.as_view(), name='report_new'),
     path('<uuid:pk>/', ReportDetailView.as_view(), name='report_detail'),
+    path('<int:pk>/edit/', ReportUpdateView.as_view(), name='report_edit'),
     path('', PetListView.as_view(), name='pet_list'),
 ]

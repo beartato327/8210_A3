@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container">
+    {% for pet in pets %}
+    {% if pet.id == object.pet.id %}
+    <h1>{{pet.pet_name}}'s Update</h1>
+    {% endif %}
+    {% endfor %}
+    <form action="" method="post">{% csrf_token %}
+      {{ form|crispy }}      
+    <button class="btn" type="submit">Update</button>
+    <a class="btn red" href="{% url 'pet_detail' object.pet.id %}">Cancel</a>
+    </form>
+</div>
+{% endblock content %}

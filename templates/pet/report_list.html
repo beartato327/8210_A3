@@ -13,6 +13,7 @@
             <th>Report Name</th>
             <th>Report Type</th>
             <th>Report Details</th>
+            <th></th>
         </thead>
         <tbody>
             
@@ -20,6 +21,7 @@
                 <td>{{report.reportName}}</td>
                 <td>{{report.reportType}}</td>
                 <td>{{report.reportDetails}}</td> 
+                <td><a class="btn green" href="{% url 'report_edit' pet.pk %}">Edit Report</a> </td>
             </tr>
         {% endfor %}
         </tbody>
