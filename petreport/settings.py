@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 import os
 import django_heroku
 from pathlib import Path
-import local_settings
+#import local_settings
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -154,7 +154,7 @@ STATICFILES_DIRS = (
 #STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 #STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL ='/media/'
+MEDIA_URL = '/media/'
 
 LOGIN_REDIRECT_URL = 'pet_list'
 LOGOUT_REDIRECT_URL = 'home'
